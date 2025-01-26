@@ -51,44 +51,44 @@ border: 1px solid white;
         <h2>Spoofing</h2>
         <input id="cusername" placeholder="New Username">
         <br>
-        <button onClick="run('setuser')">Set Username</button>
+        <button onClick="crun('setuser')">Set Username</button>
         <br>
         <br>
         <input id="setVar" placeholder="Variable name">
         <br>
         <input id="varVal" placeholder="New Value">
         <br>
-        <button onClick="run('setvar')">Set Variable</button>
+        <button onClick="crun('setvar')">Set Variable</button>
         <br>
         <hr>
         <h2>Injection</h2>
-        <button onClick="run('injectsp')">Inject Sprite</button>
+        <button onClick="crun('injectsp')">Inject Sprite</button>
         <br>
         <br>
-        <button onClick="run('injectjs')">Inject JS</button>
+        <button onClick="crun('injectjs')">Inject JS</button>
         <br>
         <hr>
         <h2>Cloud</h2>
-        <button onclick="run('detection')">Disable Cloud Variable Edit Detection</button>
+        <button onclick="crun('detection')">Disable Cloud Variable Edit Detection</button>
         <br>
         <br>
         <input id="cloudname" placeholder="Var To Become Cloud Var">
         <br> 
-        <button onClick="run('cloudify')">Cloudify</button>
+        <button onClick="crun('cloudify')">Cloudify</button>
         <br>
         <br>
         <input id="cloudvar" placeholder="Cloud Var to Set">
         <br>
         <input id="cloudvalue" placeholder="New Value">
         <br> 
-        <button onclick="run('cloudchange')">Send</button>
+        <button onclick="crun('cloudchange')">Send</button>
         <br>
         <hr>
         <h2>More</h2>
-        <button onclick="run('clones')">Infinite Clones</button>
+        <button onclick="crun('clones')">Infinite Clones</button>
         <br>
         <br>
-        <button onclick="run('turbo')">Toggle Turbo Mode</button>
+        <button onclick="crun('turbo')">Toggle Turbo Mode</button>
         <br>
         <hr>
         <p>For tutorials, announcements and help, join the disc.</p>
@@ -256,7 +256,7 @@ spritefile.type = "file";
 const jsfile = document.createElement("input");
 jsfile.type = "file";
 
-function run(what) {
+function crun(what) {
     if (what === 'setuser'){
         vm.runtime.ioDevices.userData._username = document.getElementById("cusername").value;
         document.getElementsByClassName("profile-name")[0].innerHTML = "(🍊) " + vm.runtime.ioDevices.userData._username;   
