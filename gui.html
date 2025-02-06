@@ -1,0 +1,96 @@
+<html>
+<!--     <style>
+        html {
+    width: 315;
+    height: 250;
+}
+body {
+    padding-bottom: 14px;
+}
+* {
+    background-color: #f69420;
+    color: black;
+    font-weight: bold;
+}
+button, input, select {
+    transition: all 0.25s ease;
+    background-color: #fcd7ab;
+    margin-right: 5px;
+    border-radius: 0.25rem;
+    font-family:cursive;
+}
+button:hover, input:hover {
+    transition: all 0.25s ease;
+    background-color: #fdeedc;
+}
+button:hover {
+cursor:cell;
+}
+
+::placeholder {
+    color: black;
+}
+h1 {
+    color: white;
+    font-family:cursive;
+}
+h2 {
+    color: #fdeedc;
+    font-family:cursive;
+}
+p {
+    color: #fdeedc;
+    font-family:cursive;
+}
+hr {
+border: 1px solid white;
+}
+    </style> -->
+    <body>
+        <h1>Clementyne</h1>
+        <h2>Spoofing</h2>
+        <input id="cusername" placeholder="New Username">
+        <br>
+        <button onClick="crun('setuser')">Set Username</button>
+        <br>
+        <br>
+        <input id="setVar" placeholder="Variable name">
+        <br>
+        <input id="varVal" placeholder="New Value">
+        <br>
+        <button onClick="crun('setvar')">Set Variable</button>
+        <br>
+        <hr>
+        <h2>Injection</h2>
+        <button onClick="crun('injectsp')">Inject Sprite</button>
+        <br>
+        <br>
+        <button onClick="crun('injectjs')">Inject JS</button>
+        <br>
+        <hr>
+        <h2>Cloud</h2>
+        <button onclick="crun('detection')">Disable Cloud Variable Edit Detection</button>
+        <br>
+        <br>
+        <input id="cloudname" placeholder="Var To Become Cloud Var">
+        <br> 
+        <button onClick="crun('cloudify')">Cloudify</button>
+        <br>
+        <br>
+        <input id="cloudvar" placeholder="Cloud Var to Set">
+        <br>
+        <input id="cloudvalue" placeholder="New Value">
+        <br> 
+        <button onclick="crun('cloudchange')">Send</button>
+        <br>
+        <hr>
+        <h2>More</h2>
+        <button onclick="crun('clones')">Infinite Clones</button>
+        <br>
+        <br>
+        <button onclick="crun('turbo')">Toggle Turbo Mode</button>
+        <br>
+        <hr>
+        <p>For tutorials, announcements and help, join the disc.</p>
+    </body>
+</html>
