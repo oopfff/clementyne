@@ -220,3 +220,20 @@ function crun(what) {
     vm.runtime.ioDevices.mouse.__scratchY = document.getElementById("cmousey").value
 }
 }
+
+function ohide() {
+    document.getElementsByClassName("Clementyne")[0].innerHTML = "<button onClick='oshow()'>Show Clementyne</button>";
+};
+function oshow() {
+    fetch('https://raw.githubusercontent.com/oopfff/clementyne/refs/heads/main/extension/main.html')
+    .then(response => response.text())
+    .then(data => {
+    mydiv.innerHTML =""
+    mydiv.innerHTML += data; // Append the fetched content to the popup
+    // Reinitialize drag after content is loaded
+    dragElement(mydiv);
+    })
+    .catch(error => {
+    console.log('Error fetching the HTML content:', error);
+    });
+};
