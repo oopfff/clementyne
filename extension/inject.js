@@ -21,7 +21,7 @@ mydiv.appendChild(mydivheader);
 document.body.appendChild(mydiv);
 
 // Fetch the content from the URL and set it as the innerHTML of the popup
-fetch('https://raw.githubusercontent.com/oopfff/clementyne/refs/heads/main/code/gui.html')
+fetch('https://raw.githubusercontent.com/oopfff/clementyne/refs/heads/main/hosted%20code/gui.html')
   .then(response => response.text())
   .then(data => {
     mydiv.innerHTML += data; // Append the fetched content to the popup
