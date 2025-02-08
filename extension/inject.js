@@ -29,5 +29,5 @@ fetch('https://raw.githubusercontent.com/oopfff/clementyne/refs/heads/main/exten
     dragElement(mydiv);
   })
   .catch(error => {
-    console.error('Error fetching the HTML content:', error);
+    console.log('Error fetching the HTML content:', error);
   });
