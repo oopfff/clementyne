@@ -1,7 +1,7 @@
 
 # Clementyne 🍊
 
-This is a "pentesting" (hacking lol) tool for Scratch (scratch.mit.edu). It displays HTML into the side of a Scratch project page, and injects a JavaScript file (script.js) into the page.
+This is a "pentesting" (hacking lol) extension for Scratch (scratch.mit.edu). It displays HTML into the side of a Scratch project page, and injects a JavaScript file (script.js) into the page.
 
 All open source, no ads, tracking, or spying.
 
