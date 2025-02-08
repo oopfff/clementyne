@@ -9,21 +9,18 @@
     .Clementyne button {
         transition: all 0.25s ease;
         background-color: #fcd7ab;
-        margin-right: 5px;
         border-radius: 0.25rem;
         font-family:cursive;
     }
         .Clementyne input{
         transition: all 0.25s ease;
         background-color: #fcd7ab;
-        margin-right: 5px;
         border-radius: 0.25rem;
         font-family:cursive;
     }
         .Clementyne select {
         transition: all 0.25s ease;
         background-color: #fcd7ab;
-        margin-right: 5px;
         border-radius: 0.25rem;
         font-family:cursive;
     }
@@ -71,6 +68,15 @@
             <button onClick="crun('settimer')">Set Timer</button>
             <br>
             <br>
+            <input id="cmousex" placeholder="Mouse X">
+            <br>
+            <button onClick="crun('setmousex')">Set Value</button>
+            <br>
+            <input id="cmousey" placeholder="Mouse Y">
+            <br>
+            <button onClick="crun('setmousey')">Set Value</button>
+            <br>
+            <br>
             <input id="setVar" placeholder="Variable name">
             <br>
             <input id="varVal" placeholder="New Value">
@@ -86,7 +92,7 @@
             <br>
             <hr>
             <h2>Cloud</h2>
-            <button onclick="crun('detection')">Disable Cloud Variable Edit Detection</button>
+            <button onclick="crun('detection')">Disable Cloud Edit Detection</button>
             <br>
             <br>
             <input id="cloudname" placeholder="Var To Become Cloud Var">
