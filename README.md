@@ -10,7 +10,7 @@ All open source, no ads, tracking, or spying.
     1. Download this repo into a zip (click the "code" button, or visit the releases).
     2. Unpack the zip into a single folder.
     3. Go to "chrome://extensions" and enable Developer mode (top corner).
-    4. Load the unzipped folder as an unpacked extension.
+    4. Load the unzipped folder "extension" as an unpacked extension.
     5. All done!
 ## Authors
 
