@@ -214,7 +214,9 @@ function crun(what) {
                 };
 } else if (what === 'settimer') {
     vm.runtime.ioDevices.clock._projectTimer.startTime = Date.now() - (document.getElementById("ctimer").value * 1000);
+} else if (what === 'setmousex') {
+    vm.runtime.ioDevices.mouse.__scratchX = document.getElementById("cmousex").value
+} else if (what === 'setmousey') {
+    vm.runtime.ioDevices.mouse.__scratchY = document.getElementById("cmousey").value
 }
 }
-// } vm.runtime.ioDevices.mouse.__scratchX = req.value;
-// vm.runtime.ioDevices.clock._projectTimer.startTime = Date.now() - (req.timervalue*1000);
