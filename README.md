@@ -53,9 +53,6 @@ Go to "installation" :)
 ![screenshot](https://github.com/oopfff/clementyne/blob/main/extension/images/screeny.png?raw=true)
 
 
-## Virustotal
-
-[0/62 detected](https://www.virustotal.com/gui/file/a6390aadd970a97bac1694a2e19edd8e174916e8c65ae25c74f5c7b905763de6)
 ## Contributing
 
 Contributions are always welcome! Get your name on this project!!
@@ -70,4 +67,5 @@ Please clearly state idea, pros/cons, possible implementations, images (optional
 
 ## Acknowledgements
 
- - [Scratchsploit - nostopgmaming17](https://github.com/nostopgmaming17/scratchSploit)
+ - [nostopgmaming17 - API and some scripts](https://github.com/nostopgmaming17/scratchSploit)
+ - [Isuckatbeingsocial - some scripts]([https://github.com/nostopgmaming17/scratchSploit](https://github.com/Isuckatbeingsocial/nvn/blob/main/MAIN.js))
