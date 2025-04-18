@@ -1,8 +1,8 @@
 {
         "manifest_version": 3,
-        "name": "Clementyne GG",
+        "name": "Clementyne",
         "description": "A Scratch pentesting tool.",
-        "version": "1.4",
+        "version": "1.5",
         "icons": {
             "16": "images/icon16.png",
             "48": "images/icon48.png"
@@ -16,6 +16,7 @@
         },
       {
         "matches": ["https://scratch.mit.edu/projects/*"],
+        "exclude_matches": ["https://scratch.mit.edu/projects/*/editor*"],
         "js": ["inject.js"]
       },
       {
@@ -26,4 +27,3 @@
     ],
     "permissions": ["activeTab", "scripting"]
   }
-  
