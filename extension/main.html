@@ -4,67 +4,7 @@
   <title>Clementyne</title>
 </head>
 <body>
-<script>
-window.addEventListener("DOMContentLoaded", () => {
-  const actionMap = {
-    "setuser": ["cusername"],
-    "settimer": ["ctimer"],
-    "setmousex": ["cmousex"],
-    "setmousey": ["cmousey"],
-    "setvar": ["setVar", "varVal"],
-    "injectsp": [],
-    "injectjs": [],
-    "detection": [],
-    "cloudify": ["cloudname"],
-    "cloudchange": ["cloudvar", "cloudvalue"],
-    "clones": [],
-    "turbo": []
-  };
-
-  const sendAction = (action) => {
-    const fields = actionMap[action];
-    const data = { action };
-
-    fields.forEach(id => {
-      const el = document.getElementById(id);
-      data[id] = el?.value;
-    });
-
-    window.opener?.postMessage({ source: "clementyne-popup", data }, "*");
-    console.log("[Clementyne] Sent to parent:", data);
-  };
-
-  // Attach event listeners with debug logging
-  Object.keys(actionMap).forEach(action => {
-    const btn = document.querySelector(`button[data-action="${action}"]`);
-    if (btn) {
-      btn.addEventListener("click", () => sendAction(action));
-      console.log(`[Clementyne] Bound button for action: ${action}`);
-    } else {
-      console.warn(`[Clementyne] Button not found for action: ${action}`);
-    }
-  });
-
-  const hideBtn = document.getElementById("hide-btn");
-  if (hideBtn) {
-    hideBtn.addEventListener("click", () => {
-      console.log("[Clementyne] Closing popup...");
-      window.close();
-    });
-  } else {
-    console.warn("[Clementyne] Hide button not found!");
-  }
-});
-
-// Listener for messages from parent
-window.addEventListener("message", (event) => {
-  if (event.origin !== window.origin && event.origin !== "null") {
-    console.warn("[Clementyne] Message from unexpected origin:", event.origin);
-    return;
-  }
-  console.log("[Clementyne] Received message from parent:", event.data);
-});
-</script>
+<script src="popup.js"></script>
 
 <style>
 /* Same styling */
