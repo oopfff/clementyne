@@ -1,6 +1,5 @@
 <script>
-function crun(action) {
-  // Gather relevant values (optional: modify per action)
+window.crun = function(action) {
   const data = {
     action,
     cusername: document.getElementById("cusername")?.value,
@@ -14,17 +13,14 @@ function crun(action) {
     cloudvalue: document.getElementById("cloudvalue")?.value
   };
 
-  // Send message to parent page
   window.opener?.postMessage({ source: "clementyne-popup", data }, "*");
-
   console.log("Sent to parent:", data);
-}
+};
 
-function ohide() {
+window.ohide = function() {
   window.close(); // Close the popup
-}
+};
 
-// Receive messages from parent
 window.addEventListener("message", (event) => {
   if (event.origin !== window.origin && event.origin !== "null") {
     console.warn("Message received from unexpected origin:", event.origin);
@@ -34,12 +30,12 @@ window.addEventListener("message", (event) => {
   const msg = event.data;
   console.log("Popup received message from parent:", msg);
 
-  // Optional: respond to specific messages
   if (msg === "Hello from original page!") {
     window.opener?.postMessage("Hey, popup is alive!", "*");
   }
 });
 </script>
+
 <style>
     .Clementyne {
         background-color: #f69420;
