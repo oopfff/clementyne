@@ -1,88 +1,121 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Clementyne</title>
-</head>
-<body>
-<script src="popup.js"></script>
-
 <style>
-/* Same styling */
-.Clementyne {
-  background-color: #f69420;
-  color: black;
-  font-weight: bold;
-  padding: 10px;
-}
-.Clementyne button,
-.Clementyne input,
-.Clementyne select {
-  transition: all 0.25s ease;
-  background-color: #fcd7ab;
-  border-radius: 0.25rem;
-  font-family: cursive;
-}
-.Clementyne input:hover,
-.Clementyne button:hover {
-  background-color: #fdeedc;
-  cursor: cell;
-}
-.Clementyne ::placeholder {
-  color: black;
-}
-.Clementyne h1 {
-  color: white;
-  font-family: cursive;
-}
-.Clementyne h2,
-.Clementyne p {
-  color: #fdeedc;
-  font-family: cursive;
-}
-.Clementyne hr {
-  border: 1px solid white;
-}
-</style>
-
-<div class="Clementyne">
-  <h1>Clementyne</h1>
-  <h2>Spoofing</h2>
-  <input id="cusername" placeholder="New Username"><br>
-  <button data-action="setuser">Set Username</button><br><br>
-
-  <input id="ctimer" placeholder="Timer Value"><br>
-  <button data-action="settimer">Set Timer</button><br><br>
-
-  <input id="cmousex" placeholder="Mouse X"><br>
-  <button data-action="setmousex">Set Value</button><br>
-  <input id="cmousey" placeholder="Mouse Y"><br>
-  <button data-action="setmousey">Set Value</button><br><br>
-
-  <input id="setVar" placeholder="Variable name"><br>
-  <input id="varVal" placeholder="New Value"><br>
-  <button data-action="setvar">Set Variable</button><br>
-
-  <hr>
-  <h2>Injection</h2>
-  <button data-action="injectsp">Inject Sprite</button><br><br>
-  <button data-action="injectjs">Inject JS</button><br>
-
-  <hr>
-  <h2>Cloud</h2>
-  <button data-action="detection">Disable Cloud Edit Detection</button><br><br>
-  <input id="cloudname" placeholder="Var To Become Cloud Var"><br>
-  <button data-action="cloudify">Cloudify</button><br><br>
-  <input id="cloudvar" placeholder="Cloud Var to Set"><br>
-  <input id="cloudvalue" placeholder="New Value"><br>
-  <button data-action="cloudchange">Send</button><br>
-
-  <hr>
-  <h2>More</h2>
-  <button data-action="clones">Infinite Clones</button><br><br>
-  <button data-action="turbo">Toggle Turbo Mode</button><br><br>
-
-  <button id="hide-btn">Hide Clementyne</button><br><hr>
-  <p>For tutorials, announcements and help, join the disc. Some credit to nostopgmaming17 ;)</p>
-</div>
-</body>
-</html>
+    .Clementyne {
+        background-color: #f69420;
+        color: black;
+        font-weight: bold;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .Clementyne button {
+        transition: all 0.25s ease;
+        background-color: #fcd7ab;
+        border-radius: 0.25rem;
+        font-family:cursive;
+    }
+        .Clementyne input{
+        transition: all 0.25s ease;
+        background-color: #fcd7ab;
+        border-radius: 0.25rem;
+        font-family:cursive;
+    }
+        .Clementyne select {
+        transition: all 0.25s ease;
+        background-color: #fcd7ab;
+        border-radius: 0.25rem;
+        font-family:cursive;
+    }
+    .Clementyne input:hover {
+        transition: all 0.25s ease;
+        background-color: #fdeedc;
+    }
+        .Clementyne button:hover {
+        transition: all 0.25s ease;
+        background-color: #fdeedc;
+    }
+    .Clementyne button:hover {
+    cursor:cell;
+    }
+    
+    .Clementyne ::placeholder {
+        color: black;
+    }
+    .Clementyne h1 {
+        color: white;
+        font-family:cursive;
+    }
+    .Clementyne h2 {
+        color: #fdeedc;
+        font-family:cursive;
+    }
+    .Clementyne p {
+        color: #fdeedc;
+        font-family:cursive;
+    }
+    .Clementyne hr {
+    border: 1px solid white;
+    }
+        </style>
+        <div class="Clementyne">
+            <h1>Clementyne</h1>
+            <h2>Spoofing</h2>
+            <input id="cusername" placeholder="New Username">
+            <br>
+            <button onClick="crun('setuser')">Set Username</button>
+            <br>
+            <br>
+            <input id="ctimer" placeholder="Timer Value">
+            <br>
+            <button onClick="crun('settimer')">Set Timer</button>
+            <br>
+            <br>
+            <input id="cmousex" placeholder="Mouse X">
+            <br>
+            <button onClick="crun('setmousex')">Set Value</button>
+            <br>
+            <input id="cmousey" placeholder="Mouse Y">
+            <br>
+            <button onClick="crun('setmousey')">Set Value</button>
+            <br>
+            <br>
+            <input id="setVar" placeholder="Variable name">
+            <br>
+            <input id="varVal" placeholder="New Value">
+            <br>
+            <button onClick="crun('setvar')">Set Variable</button>
+            <br>
+            <hr>
+            <h2>Injection</h2>
+            <button onClick="crun('injectsp')">Inject Sprite</button>
+            <br>
+            <br>
+            <button onClick="crun('injectjs')">Inject JS</button>
+            <br>
+            <hr>
+            <h2>Cloud</h2>
+            <button onclick="crun('detection')">Disable Cloud Edit Detection</button>
+            <br>
+            <br>
+            <input id="cloudname" placeholder="Var To Become Cloud Var">
+            <br> 
+            <button onClick="crun('cloudify')">Cloudify</button>
+            <br>
+            <br>
+            <input id="cloudvar" placeholder="Cloud Var to Set">
+            <br>
+            <input id="cloudvalue" placeholder="New Value">
+            <br> 
+            <button onclick="crun('cloudchange')">Send</button>
+            <br>
+            <hr>
+            <h2>More</h2>
+            <button onclick="crun('clones')">Infinite Clones</button>
+            <br>
+            <br>
+            <button onclick="crun('turbo')">Toggle Turbo Mode</button>
+            <br>
+            <br>
+            <button onClick="ohide()">Hide Clementyne</button>
+            <br>
+            <hr>
+            <p>For tutorials, announcements and help, join the disc. Some credit to nostopgmaming17 ;)</p>
+        </div>
