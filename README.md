@@ -69,4 +69,4 @@ Please clearly state idea, pros/cons, possible implementations, images (optional
 
  - [nostopgmaming17 - API and some scripts](https://github.com/nostopgmaming17/scratchSploit)
  - [Isuckatbeingsocial - some scripts](https://github.com/Isuckatbeingsocial/nvn/blob/main/MAIN.js)
- - [ChatGPT - some scripts/help (no need to say it yes I am a skid)](https://chat.com/)
+ - [ChatGPT - some scripts/help (no need to say it; I am a skid)](https://chat.com/)
