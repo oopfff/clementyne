@@ -119,3 +119,45 @@
             <hr>
             <p>For tutorials, announcements and help, join the disc. Some credit to nostopgmaming17 ;)</p>
         </div>
+<script>
+function crun(action) {
+  // Gather relevant values (optional: modify per action)
+  const data = {
+    action,
+    cusername: document.getElementById("cusername")?.value,
+    ctimer: document.getElementById("ctimer")?.value,
+    cmousex: document.getElementById("cmousex")?.value,
+    cmousey: document.getElementById("cmousey")?.value,
+    setVar: document.getElementById("setVar")?.value,
+    varVal: document.getElementById("varVal")?.value,
+    cloudname: document.getElementById("cloudname")?.value,
+    cloudvar: document.getElementById("cloudvar")?.value,
+    cloudvalue: document.getElementById("cloudvalue")?.value
+  };
+
+  // Send message to parent page
+  window.opener?.postMessage({ source: "clementyne-popup", data }, "*");
+
+  console.log("Sent to parent:", data);
+}
+
+function ohide() {
+  window.close(); // Close the popup
+}
+
+// Receive messages from parent
+window.addEventListener("message", (event) => {
+  if (event.origin !== window.origin && event.origin !== "null") {
+    console.warn("Message received from unexpected origin:", event.origin);
+    return;
+  }
+
+  const msg = event.data;
+  console.log("Popup received message from parent:", msg);
+
+  // Optional: respond to specific messages
+  if (msg === "Hello from original page!") {
+    window.opener?.postMessage("Hey, popup is alive!", "*");
+  }
+});
+</script>
