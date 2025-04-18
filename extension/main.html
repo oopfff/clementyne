@@ -1,5 +1,8 @@
+<!DOCTYPE html>
 <html>
-<head></head>
+<head>
+  <title>Clementyne</title>
+</head>
 <body>
 <script>
 window.addEventListener("DOMContentLoaded", () => {
@@ -28,47 +31,59 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     window.opener?.postMessage({ source: "clementyne-popup", data }, "*");
-    console.log("Sent to parent:", data);
+    console.log("[Clementyne] Sent to parent:", data);
   };
 
-  for (const action in actionMap) {
-    const button = document.querySelector(`[data-action="${action}"]`);
-    if (button) {
-      button.addEventListener("click", () => sendAction(action));
+  // Attach event listeners with debug logging
+  Object.keys(actionMap).forEach(action => {
+    const btn = document.querySelector(`button[data-action="${action}"]`);
+    if (btn) {
+      btn.addEventListener("click", () => sendAction(action));
+      console.log(`[Clementyne] Bound button for action: ${action}`);
+    } else {
+      console.warn(`[Clementyne] Button not found for action: ${action}`);
     }
-  }
+  });
 
   const hideBtn = document.getElementById("hide-btn");
-  hideBtn.addEventListener("click", () => window.close());
+  if (hideBtn) {
+    hideBtn.addEventListener("click", () => {
+      console.log("[Clementyne] Closing popup...");
+      window.close();
+    });
+  } else {
+    console.warn("[Clementyne] Hide button not found!");
+  }
 });
 
-// Listen for messages from parent
+// Listener for messages from parent
 window.addEventListener("message", (event) => {
   if (event.origin !== window.origin && event.origin !== "null") {
-    console.warn("Message received from unexpected origin:", event.origin);
+    console.warn("[Clementyne] Message from unexpected origin:", event.origin);
     return;
   }
-
-  console.log("Popup received message from parent:", event.data);
+  console.log("[Clementyne] Received message from parent:", event.data);
 });
 </script>
 
 <style>
-/* same Clementyne styling as before */
+/* Same styling */
 .Clementyne {
   background-color: #f69420;
   color: black;
   font-weight: bold;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
 }
-.Clementyne button, .Clementyne input, .Clementyne select {
+.Clementyne button,
+.Clementyne input,
+.Clementyne select {
   transition: all 0.25s ease;
   background-color: #fcd7ab;
   border-radius: 0.25rem;
   font-family: cursive;
 }
-.Clementyne input:hover, .Clementyne button:hover {
+.Clementyne input:hover,
+.Clementyne button:hover {
   background-color: #fdeedc;
   cursor: cell;
 }
@@ -79,7 +94,8 @@ window.addEventListener("message", (event) => {
   color: white;
   font-family: cursive;
 }
-.Clementyne h2, .Clementyne p {
+.Clementyne h2,
+.Clementyne p {
   color: #fdeedc;
   font-family: cursive;
 }
@@ -114,12 +130,10 @@ window.addEventListener("message", (event) => {
   <hr>
   <h2>Cloud</h2>
   <button data-action="detection">Disable Cloud Edit Detection</button><br><br>
-
-  <input id="cloudname" placeholder="Var To Become Cloud Var"><br> 
+  <input id="cloudname" placeholder="Var To Become Cloud Var"><br>
   <button data-action="cloudify">Cloudify</button><br><br>
-
   <input id="cloudvar" placeholder="Cloud Var to Set"><br>
-  <input id="cloudvalue" placeholder="New Value"><br> 
+  <input id="cloudvalue" placeholder="New Value"><br>
   <button data-action="cloudchange">Send</button><br>
 
   <hr>
@@ -127,9 +141,7 @@ window.addEventListener("message", (event) => {
   <button data-action="clones">Infinite Clones</button><br><br>
   <button data-action="turbo">Toggle Turbo Mode</button><br><br>
 
-  <button id="hide-btn">Hide Clementyne</button><br>
-
-  <hr>
+  <button id="hide-btn">Hide Clementyne</button><br><hr>
   <p>For tutorials, announcements and help, join the disc. Some credit to nostopgmaming17 ;)</p>
 </div>
 </body>
