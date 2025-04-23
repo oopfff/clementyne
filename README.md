@@ -41,7 +41,7 @@ All open source, no ads, tracking, or spying.
 
 #### What browser will this work on?
 
-Only Chrome as of version 1.5.
+Only Chrome as of now.
 
 #### How do I install this?
 
@@ -54,6 +54,10 @@ Clementyne is not affiliated with or endorsed by Scratch. Clementyne may violate
 #### How does Clementyne use my data?
 
 Clementyne doesn't collect or use any user data.
+
+#### Does this work offline?
+
+Yes! As of version 1.6.1, Clementyne is 100% local. As long as Scratch is still cached, you can use the spoofing, injection, and more.
 
 ## Images
 
@@ -73,7 +77,7 @@ Please clearly state idea, pros/cons, possible implementations, images (optional
 
 ## Future plans
 
-Make it 100% local therefore offline compatible.
+Introduce cookies to let users set settings like alerts (dark mode??)
 
 ## Acknowledgements
 
