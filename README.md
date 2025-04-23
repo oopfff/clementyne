@@ -41,12 +41,19 @@ All open source, no ads, tracking, or spying.
 
 #### What browser will this work on?
 
-Chrome!
+Only Chrome as of version 1.5.
 
 #### How do I install this?
 
 Go to "installation" :)
 
+#### Is this allowed on Scratch?
+
+Clementyne is not affiliated with or endorsed by Scratch. Clementyne may violate Scratch's Community Guidelines, but could have a low risk of a ban. Use at your own risk!
+
+#### How does Clementyne use my data?
+
+Clementyne doesn't collect or use any user data.
 
 ## Pics
 
@@ -64,6 +71,9 @@ Please clearly state idea, pros/cons, possible implementations, images (optional
 
 [Apache-2.0 license](https://github.com/oopfff/clementyne?tab=Apache-2.0-1-ov-file#Apache-2.0-1-ov-file)
 
+## Future plans
+
+Make it 100% local therefor offline compatible.
 
 ## Acknowledgements
 
