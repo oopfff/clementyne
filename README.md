@@ -73,7 +73,7 @@ Please clearly state idea, pros/cons, possible implementations, images (optional
 
 ## Future plans
 
-Make it 100% local therefor offline compatible.
+Make it 100% local therefore offline compatible.
 
 ## Acknowledgements
 
