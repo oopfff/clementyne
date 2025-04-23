@@ -57,7 +57,7 @@ Clementyne doesn't collect or use any user data.
 
 ## Images
 
-![screenshot](https://github.com/oopfff/clementyne/blob/main/extension/images/screeny.png?raw=true)
+![screenshot](https://github.com/oopfff/clementyne/blob/main/extension/images/screeny2.png?raw=true)
 
 
 ## Contributing
