@@ -55,7 +55,7 @@ Clementyne is not affiliated with or endorsed by Scratch. Clementyne may violate
 
 Clementyne doesn't collect or use any user data.
 
-## Pics
+## Images
 
 ![screenshot](https://github.com/oopfff/clementyne/blob/main/extension/images/screeny.png?raw=true)
 
