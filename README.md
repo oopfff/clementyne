@@ -3,7 +3,7 @@
 
 This is a "pentesting" (hacking lol) extension for Scratch (scratch.mit.edu). It displays HTML into the side of a Scratch project page, and injects a JavaScript file (script.js) into the page.
 
-All open source, no ads, tracking, or spying.
+All open source, no ads, no tracking.
 
 ## Installation
 
@@ -87,7 +87,7 @@ Please clearly state idea, pros/cons, possible implementations, images (optional
 
 ## Future plans
 
-Introduce cookies to let users set settings like alerts (dark mode??)
+Introduce cookies to let users save settings like alerts (dark mode??)
 
 ## Acknowledgements
 
