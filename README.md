@@ -7,11 +7,21 @@ All open source, no ads, tracking, or spying.
 
 ## Installation
 
-    1. Download this repo into a zip (click the "code" button, or visit the releases).
+    1. Download this repo into a zip (click the "code" button).
     2. Unpack the zip.
     3. Go to "chrome://extensions" and enable Developer mode (top corner).
     4. Load the folder "extension" as an unpacked extension.
     5. All done!
+
+    OR
+
+    1. Go to "releases".
+    2. Download "extension.zip".
+    3. Unpack the zip.
+    4. Go to "chrome://extensions" and enable Developer mode (top corner).
+    5. Load the folder "extension" as an unpacked extension.
+    6. All done!
+
 ## Authors
 
 - [@oopfff](https://www.github.com/oopfff)
