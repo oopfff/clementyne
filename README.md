@@ -87,7 +87,7 @@ Please clearly state idea, pros/cons, possible implementations, images (optional
 
 ## Future plans
 
-Introduce cookies to let users save settings like alerts (dark mode??)
+Introduce cookies to let users save settings like alerts (dark mode??), fix font
 
 ## Acknowledgements
 
