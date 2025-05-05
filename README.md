@@ -1,4 +1,3 @@
-
 # Clementyne 🍊
 
 This is a "pentesting" (hacking lol) extension for Scratch (scratch.mit.edu). It displays HTML into the side of a Scratch project page, and injects a JavaScript file (script.js) into the page.
@@ -21,6 +20,10 @@ All open source, no ads, no tracking.
     4. Go to "chrome://extensions" and enable Developer mode (top corner).
     5. Load the folder "extension" as an unpacked extension.
     6. All done!
+
+## Updates
+
+Working on big things... 1.6.2 coming soon
 
 ## Authors
 
