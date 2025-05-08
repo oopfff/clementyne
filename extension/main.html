@@ -4,19 +4,21 @@
         color: black;
         padding-left: 10px;
         padding-right: 10px;
+        text-align: center;
+        border-radius: 6.9px;
     }
     .Clementyne button {
         transition: all 0.25s ease;
         background-color: #fcd7ab;
         border-radius: 0.25rem;
-        font-family:cursive;
+        font-family:"Comic Sans MS", "Comic Sans", cursive;
         font-weight: bold;
     }
     .Clementyne input{
         transition: all 0.25s ease;
         background-color: #fcd7ab;
         border-radius: 0.25rem;
-        font-family:cursive;
+        font-family:"Comic Sans MS", "Comic Sans", cursive;
         font-weight: bold;
     }
     .Clementyne input:hover {
@@ -26,8 +28,6 @@
     .Clementyne button:hover {
         transition: all 0.25s ease;
         background-color: #fdeedc;
-    }
-    .Clementyne button:hover {
         cursor:cell;
     }
     .Clementyne ::placeholder {
@@ -35,7 +35,7 @@
     }
     .Clementyne h1 {
         color: white;
-        font-family:cursive;
+        font-family:"Comic Sans MS", "Comic Sans", cursive;
         font-weight: bold;
     }
     .Clementyne h1:hover {
@@ -43,12 +43,12 @@
     }
     .Clementyne h2 {
         color: #fdeedc;
-        font-family:cursive;
+        font-family:"Comic Sans MS", "Comic Sans", cursive;
         font-weight: bold;
     }
     .Clementyne p {
         color: #fdeedc;
-        font-family:cursive;
+        font-family:"Comic Sans MS", "Comic Sans", cursive;
         font-weight: bold;
     }
     .Clementyne hr {
@@ -58,21 +58,21 @@
 <div class="Clementyne">
     <h1>Clementyne</h1>
     <h2>Spoofing</h2>
-    <input id="cusername" placeholder="New Username">
+    <input id="cusername" type="text" placeholder="New Username">
     <br>
     <button onClick="crun('setuser')">Set Username</button>
     <br>
     <br>
-    <input id="ctimer" placeholder="Timer Value">
+    <input id="ctimer" type="number" placeholder="Timer Value">
     <br>
     <button onClick="crun('settimer')">Set Timer</button>
     <br>
     <br>
-    <input id="cmousex" placeholder="Mouse X">
+    <input id="cmousex" type="number" placeholder="Mouse X">
     <br>
     <button onClick="crun('setmousex')">Set Value</button>
     <br>
-    <input id="cmousey" placeholder="Mouse Y">
+    <input id="cmousey" type="number" placeholder="Mouse Y">
     <br>
     <button onClick="crun('setmousey')">Set Value</button>
     <br>
@@ -92,9 +92,6 @@
     <br>
     <hr>
     <h2>Cloud</h2>
-    <button onclick="crun('detection')">Disable Cloud Edit Detection</button>
-    <br>
-    <br>
     <input id="cloudname" placeholder="Var To Become Cloud Var">
     <br> 
     <button onClick="crun('cloudify')">Cloudify</button>
@@ -102,7 +99,7 @@
     <br>
     <input id="cloudvar" placeholder="Cloud Var to Set">
     <br>
-    <input id="cloudvalue" placeholder="New Value">
+    <input id="cloudvalue" type="number" placeholder="New Value">
     <br> 
     <button onclick="crun('cloudchange')">Send</button>
     <br>
