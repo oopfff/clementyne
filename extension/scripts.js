@@ -61,32 +61,6 @@ function cloudify(ele) {
 
 let ProviderLog;
 
-function disableEditorCVP() {
-    ProviderLog = vm.runtime.ioDevices.cloud.provider;
-    let isFirstSet = true;
-
-    if (vm.runtime.ioDevices.cloud.provider) {
-        vm.runtime.ioDevices.cloud.provider['requestCloseConnection'] = function() {};
-    }
-
-    function checkAndSetProvider() {
-        setTimeout(() => {
-            if (vm.runtime.ioDevices.cloud.provider == null) {
-                vm.runtime.ioDevices.cloud.provider = ProviderLog;
-                checkAndSetProvider();
-            } else {
-                if (isFirstSet) {
-                    isFirstSet = false;
-                    alert('🍊: Disabled editor cloud var protection');
-                }
-                checkAndSetProvider();
-            }
-        }, 3000);
-    }
-
-    checkAndSetProvider();
-}
-
 function sendCloudUpdate(variableName, value, projectId) {
     // Declare the WebSocket and handshake status in the function scope
     let socket = sendCloudUpdate.socket || null; 
@@ -198,8 +172,6 @@ function crun(what) {
         });
     }
     jsfile.click();
-} else if (what === 'detection') {
-    disableEditorCVP();
 } else if (what === 'cloudify') {
     cloudify(document.getElementById("cloudname").value);
 } else if (what === 'cloudchange') {
@@ -225,11 +197,18 @@ function ohide() {
     document.getElementsByClassName("Clementyne")[0].innerHTML = "<button onClick='oshow()'>Show Clementyne</button>";
 };
 function oshow() {
-    const requestEvent = new CustomEvent("requestMainHtml");
-    document.dispatchEvent(requestEvent);
+    const requestMain = new CustomEvent("requestMainHtml");
+    document.dispatchEvent(requestMain);
+};
+function osettings() {
+    const rqsettings = new CustomEvent("rqsettings");
+    document.dispatchEvent(rqsettings);
 }
-
 document.addEventListener("respondMainHtml", function(e) {
     const htmlContent = e.detail;
     mydiv.innerHTML = htmlContent;
+});
+document.addEventListener("rpsettings", function(e) {
+    const rpsettings = e.detail;
+    mydiv.innerHTML = rpsettings;
 });
