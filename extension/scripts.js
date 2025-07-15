@@ -1,3 +1,12 @@
+const cookie=(()=>{let e=e=>{document.cookie=cookie._cache[e]?`${e}=${encodeURIComponent(cookie._cache[e])};path=/`:`${e}=;expires=Sat, 02 Jan 1971 00:00:00 UTC;path=/`};return{_cache:{},list:()=>Object.keys(cookie._cache),get(e){let c={};for(let o of document.cookie.split(";")){let[t,...i]=o.trim().split("=");c[t]=decodeURIComponent(i.join("="))}return c[e]??null},set(c,o){o?cookie._cache[c]=o:delete cookie._cache[c],e(c)}}})();
+// cookie parsing for settings ^^^
+
+function alertif(cont) {
+    if (cookie.get("oalerts")) {
+        alert(cont);
+    };
+};
+
 function FindVar(sprite, specificName) {
     let jsonObj;
     if (sprite.toUpperCase() !== 'STAGE') {
@@ -55,7 +64,7 @@ function cloudify(ele) {
     let found = FindVar(sprite, variable);
     if (found) {
         found.isCloud = true;
-        alert("🍊: Cloudify successful!");
+        alertif("🍊: Cloudify successful!");
     }
 }
 
@@ -125,7 +134,7 @@ function sendCloudUpdate(variableName, value, projectId) {
         }) + '\n';
 
         socket.send(cloudUpdatePacket);
-        console.log('Sent Cloud Update Packet:', cloudUpdatePacket);
+        alertif("🍊: Sent cloud data!");
     }
 }
 
@@ -146,7 +155,7 @@ function crun(what) {
 
         const result = getTargetAndVariableIdByName(runtime, targetName, variableName);
         vm.setVariableValue(result.targetId, result.variableId, variablevalue);
-        alert("🍊: Variable set!");
+        alertif("🍊: Variable set!");
 } else if (what === 'injectsp') {
     spritefile.onchange = function(e){
         console.log(e.target,e.target.files)
@@ -155,6 +164,7 @@ function crun(what) {
             const reader = new FileReader;
             reader.onload = ()=>{
                 vm.addSprite(reader.result);
+                alertif("🍊: Added sprite!");
             }
             reader.readAsArrayBuffer(file);
         });
@@ -167,6 +177,7 @@ function crun(what) {
             const reader = new FileReader;
             reader.onload = ()=>{
                 eval(reader.result);
+                alertif("🍊: Added js!");
             }
             reader.readAsText(file);
         });
@@ -178,18 +189,24 @@ function crun(what) {
     sendCloudUpdate(document.getElementById("cloudvar").value, document.getElementById("cloudvalue").value, window.location.href.substring(33, 43))
 } else if (what === 'clones') {
     enableInfiniteClones();
+    alertif("🍊: Infinite clones enabled!");
 } else if (what === 'turbo') {
     if (vm.runtime.turboMode) {
-                    vm.setTurboMode(false);
-                } else {
-                    vm.setTurboMode(true);
-                };
+        vm.setTurboMode(false);
+        alertif("🍊: Turbo mode off!");
+    } else {
+        vm.setTurboMode(true);
+        alertif("🍊: Turbo mode on!");
+    };
 } else if (what === 'settimer') {
     vm.runtime.ioDevices.clock._projectTimer.startTime = Date.now() - (document.getElementById("ctimer").value * 1000);
+    alertif("🍊: Timer set!");
 } else if (what === 'setmousex') {
     vm.runtime.ioDevices.mouse.__scratchX = document.getElementById("cmousex").value
+    alertif("🍊: Mouse set!");
 } else if (what === 'setmousey') {
     vm.runtime.ioDevices.mouse.__scratchY = document.getElementById("cmousey").value
+    alertif("🍊: Mouse set!");
 }
 }
 
@@ -203,7 +220,15 @@ function oshow() {
 function osettings() {
     const rqsettings = new CustomEvent("rqsettings");
     document.dispatchEvent(rqsettings);
-}
+};
+function saveSettings() {
+    cookie.set("ousername", document.getElementById("ousername").checked);
+    cookie.set("ousernameval", document.getElementById("CCuser").value);
+    cookie.set("oclones", document.getElementById("oclones").checked);
+    cookie.set("oturbo", document.getElementById("oturbo").checked);
+    cookie.set("oalerts", document.getElementById("oalerts").checked);
+    alertif("🍊: Settings set!");
+};
 document.addEventListener("respondMainHtml", function(e) {
     const htmlContent = e.detail;
     mydiv.innerHTML = htmlContent;
@@ -211,4 +236,24 @@ document.addEventListener("respondMainHtml", function(e) {
 document.addEventListener("rpsettings", function(e) {
     const rpsettings = e.detail;
     mydiv.innerHTML = rpsettings;
+    setTimeout(() => {
+        document.getElementById("ousername").checked = cookie.get("ousername") === "true";
+        document.getElementById("CCuser").value = cookie.get("ousernameval") || "";
+        document.getElementById("oclones").checked = cookie.get("oclones") === "true";
+        document.getElementById("oturbo").checked = cookie.get("oturbo") === "true";
+        document.getElementById("oalerts").checked = cookie.get("oalerts") === "true";
+    }, 0);
+});
+
+vm.runtime.once('PROJECT_START', () => {
+    if (cookie.get("ousername") === "true") {
+        vm.runtime.ioDevices.userData._username = cookie.get("ousernameval");
+        document.getElementsByClassName("profile-name")[0].innerHTML = "(🍊) " + vm.runtime.ioDevices.userData._username;
+    };
+    if (cookie.get("oclones") === "true") {
+        enableInfiniteClones();
+    };
+    if (cookie.get("oturbo") === "true") {
+        vm.setTurboMode(true);
+    };
 });
