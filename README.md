@@ -50,6 +50,7 @@ Working on big things... 1.6.2 coming soon
 #### More
 - Infinite clones
 - Toggle turbo mode (without clicking flag)
+- Auto set turbo mode, infinite clones, and username 
 ## FAQ
 
 #### What browser will this work on?
@@ -90,7 +91,7 @@ Please clearly state idea, pros/cons, possible implementations, images (optional
 
 ## Future plans
 
-Introduce cookies to let users save settings like alerts (dark mode??), fix font
+fix font
 
 ## Acknowledgements
 
