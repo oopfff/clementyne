@@ -23,7 +23,7 @@ All local and open source, no ads, no tracking.
 
 ## Updates
 
-Working on big things... 1.6.2 coming soon
+BIG UPDATE!!! Settings: auto set turbo mode, infinite clones, and usernames.
 
 ## Authors
 
