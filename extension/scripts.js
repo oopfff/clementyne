@@ -124,15 +124,14 @@ function sendCloudUpdate(variableName, value, projectId) {
     }
 
     function sendUpdatePacket() {
-        // Construct and send the cloud update packet
+        const useCloudEmoji = document.getElementById("ccloudcheck").checked;
         const cloudUpdatePacket = JSON.stringify({
             method: 'set',
             user: cloudusername,
             project_id: projectId,
-            name: `☁ ${variableName}`,
+            name: (useCloudEmoji ? '☁ ' : '') + variableName,
             value: value
         }) + '\n';
-
         socket.send(cloudUpdatePacket);
         alertif("🍊: Sent cloud data!");
     }
@@ -260,3 +259,4 @@ vm.runtime.once('PROJECT_START', () => {
     };
 
 });
+
