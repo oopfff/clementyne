@@ -23,7 +23,8 @@ All local and open source, no ads, no tracking.
 
 ## Updates
 
-BIG UPDATE!!! Settings: auto set turbo mode, infinite clones, and usernames.
+CRUCIAL CLOUD SPOOFING UPDATE!!! (i forgot project IDs aren't always 9 chars smh)
+Pls update if you want to use cloud spoofing.
 
 ## Authors
 
