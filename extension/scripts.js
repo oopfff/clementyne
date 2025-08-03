@@ -186,7 +186,9 @@ function crun(what) {
 } else if (what === 'cloudify') {
     cloudify(document.getElementById("cloudname").value);
 } else if (what === 'cloudchange') {
-    sendCloudUpdate(document.getElementById("cloudvar").value, document.getElementById("cloudvalue").value, window.location.href.substring(33, 43))
+    const url = window.location.href;
+    const finalID = url.split("/projects/")[1].split("/")[0];
+    sendCloudUpdate(document.getElementById("cloudvar").value, document.getElementById("cloudvalue").value, finalID);
 } else if (what === 'clones') {
     enableInfiniteClones();
     alertif("🍊: Infinite clones enabled!");
@@ -256,4 +258,5 @@ vm.runtime.once('PROJECT_START', () => {
     if (cookie.get("oturbo") === "true") {
         vm.setTurboMode(true);
     };
+
 });
