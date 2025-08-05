@@ -8,47 +8,30 @@ function alertif(cont) {
 };
 
 function FindVar(sprite, specificName) {
-    let jsonObj;
+    let target;
     if (sprite.toUpperCase() !== 'STAGE') {
-        jsonObj = vm.runtime.getSpriteTargetByName(sprite).variables;
+        target = vm.runtime.getSpriteTargetByName(sprite);
     } else {
-        jsonObj = vm.runtime.getTargetForStage().variables;
+        target = vm.runtime.getTargetForStage();
     }
 
-    for (let key in jsonObj) {
-        if (typeof jsonObj[key] === 'object') {
-            if (jsonObj[key].hasOwnProperty('name')) {
-                if (jsonObj[key].name === specificName) {
-                    return jsonObj[key];
-                }
+    if (!target) {
+        console.warn(`Target "${sprite}" not found.`);
+        return null;
+    }
+    const variables = target.variables;
+    for (let varId in variables) {
+        const variable = variables[varId];
+        if (typeof variable === 'object' && variable.hasOwnProperty('name')) {
+            if (variable.name === specificName) {
+                return {
+                    targetId: target.id,
+                    variableId: varId,
+                    variableObj: variable
+                };
             }
         }
     }
-    return null; 
-}
-
-function getTargetAndVariableIdByName(runtime, targetName, variableName) {
-    for (const target of runtime.targets) {
-        if (target.getName() === targetName) {
-            const targetId = target.id; // Get the target ID
-
-            // Look for the variable within this target
-            for (const [varId, variable] of Object.entries(target.variables)) {
-                // Check if the variable's name matches the desired variable name
-                if (variable.name === variableName) {
-                    const variableId = varId; // Get the variable ID
-                    return { targetId, variableId };
-                }
-            }
-
-            // If the target is found but no matching variable
-            console.warn(`Variable "${variableName}" not found in target "${targetName}".`);
-            return null;
-        }
-    }
-
-    // If no target matches the name
-    console.warn(`Target "${targetName}" not found.`);
     return null;
 }
 
@@ -59,12 +42,15 @@ function enableInfiniteClones() {
 }
 
 function cloudify(ele) {
-    let sprite = "Stage";
-    let variable = ele;
-    let found = FindVar(sprite, variable);
-    if (found) {
-        found.isCloud = true;
+    const spriteInput = document.getElementById("cloudifySprite").value.trim();
+    const sprite = spriteInput === "" ? "Stage" : spriteInput;
+    const variableName = ele;
+    const found = FindVar(sprite, variableName);
+    if (found && found.variableObj) {
+        found.variableObj.isCloud = true;
         alertif("🍊: Cloudify successful!");
+    } else {
+        alertif(`🍊: Variable "${variableName}" not found.`);
     }
 }
 
@@ -145,14 +131,15 @@ jsfile.type = "file";
 function crun(what) {
     if (what === 'setuser'){
         vm.runtime.ioDevices.userData._username = document.getElementById("cusername").value;
-        document.getElementsByClassName("profile-name")[0].innerHTML = "(🍊) " + vm.runtime.ioDevices.userData._username;   
+        document.getElementsByClassName("profile-name")[0].innerHTML = "(🍊) " + vm.runtime.ioDevices.userData._username;
+        alertif("🍊: Username set!");   
     } else if (what === 'setvar'){
-        const runtime = vm.runtime;
-        const targetName = "Stage"; // Replace with the target's name
+        const spriteInput = document.getElementById("varSprite").value.trim();
+        const targetName = spriteInput === "" ? "Stage" : spriteInput;
         const variableName = document.getElementById("setVar").value;
         const variablevalue = document.getElementById("varVal").value;
 
-        const result = getTargetAndVariableIdByName(runtime, targetName, variableName);
+        const result = FindVar(targetName, variableName);
         vm.setVariableValue(result.targetId, result.variableId, variablevalue);
         alertif("🍊: Variable set!");
 } else if (what === 'injectsp') {
@@ -188,6 +175,7 @@ function crun(what) {
     const url = window.location.href;
     const finalID = url.split("/projects/")[1].split("/")[0];
     sendCloudUpdate(document.getElementById("cloudvar").value, document.getElementById("cloudvalue").value, finalID);
+    alertif("🍊: Sent cloud message!");
 } else if (what === 'clones') {
     enableInfiniteClones();
     alertif("🍊: Infinite clones enabled!");
@@ -257,6 +245,11 @@ vm.runtime.once('PROJECT_START', () => {
     if (cookie.get("oturbo") === "true") {
         vm.setTurboMode(true);
     };
-
 });
 
+function evaljs() {
+    const input = document.getElementById("cjsinput").value.trim();
+    if (input) {
+        eval(input);
+    }
+};
