@@ -46,7 +46,7 @@
         font-family:"Comic Sans MS", "Comic Sans", cursive;
         font-weight: bold;
     }
-    .Clementyne p {
+    .Clementyne p, a {
         color: #fdeedc;
         font-family:"Comic Sans MS", "Comic Sans", cursive;
         font-weight: bold;
@@ -84,6 +84,8 @@
     <br>
     <input id="varVal" placeholder="New Value">
     <br>
+    <input id="varSprite" placeholder="Sprite Name (optional)"><br><a onClick="alert('🍊: Leave Sprite Name blank for none/Stage.')"> ?</a>
+    <br>
     <button onClick="crun('setvar')">Set Variable</button>
     <br>
     <hr>
@@ -100,6 +102,8 @@
     <hr>
     <h2>Cloud</h2>
     <input id="cloudname" placeholder="Var To Become Cloud Var">
+    <br>
+    <input id="cloudifySprite" placeholder="Sprite Name (optional)">
     <br> 
     <button onClick="crun('cloudify')">Cloudify</button>
     <br>
@@ -109,7 +113,6 @@
     <input id="cloudvalue" type="number" placeholder="New Value">
     <br>
     <p><input id="ccloudcheck" type="checkbox" checked> Include cloud emoji (☁)</p>
-    <br> 
     <button onclick="crun('cloudchange')">Send</button>
     <br>
     <hr>
