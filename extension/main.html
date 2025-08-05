@@ -88,11 +88,15 @@
     <br>
     <hr>
     <h2>Injection</h2>
-    <button onClick="crun('injectsp')">Inject Sprite</button>
+    <button onClick="crun('injectsp')">Inject Sprite (file)</button>
     <br>
     <br>
-    <button onClick="crun('injectjs')">Inject JS</button>
+    <button onClick="crun('injectjs')">Inject JS (file)</button>
     <br>
+    <br>
+    <input id="cjsinput" placeholder="Paste JS here">
+    <br>
+    <button onClick="evaljs()">Inject</button>
     <hr>
     <h2>Cloud</h2>
     <input id="cloudname" placeholder="Var To Become Cloud Var">
@@ -103,6 +107,8 @@
     <input id="cloudvar" placeholder="Cloud Var to Set">
     <br>
     <input id="cloudvalue" type="number" placeholder="New Value">
+    <br>
+    <p><input id="ccloudcheck" type="checkbox" checked> Include cloud emoji (☁)</p>
     <br> 
     <button onclick="crun('cloudchange')">Send</button>
     <br>
