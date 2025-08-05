@@ -92,7 +92,7 @@ Please clearly state idea, pros/cons, possible implementations, images (optional
 
 ## Future plans
 
-fix font
+list spoofing? more options regarding cloud emoji and variable spoofing (sprite specific vars)
 
 ## Acknowledgements
 
